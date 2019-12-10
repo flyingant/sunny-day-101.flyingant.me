@@ -1,3 +1,15 @@
 body {
-  background-color: white;
+  position: relative;
+  .cute-sunny {
+    position: absolute;
+    top: 6vw;
+    left: 6vw;
+  }
+  .box {
+    visibility: hidden;
+  }
+  .footer {
+    position: absolute;
+    bottom: 2vh;
+  }
 }

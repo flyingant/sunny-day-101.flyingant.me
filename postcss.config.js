@@ -11,8 +11,5 @@ module.exports = {
       preset: 'default',
     }),
     autoprefixer,
-    purgecss({
-      content: ['./src/**/*.html'],
-    }),
   ],
 };

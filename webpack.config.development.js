@@ -4,9 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-
   entry: {
-    bundle: './src/index.js'
+    bundle: './src/index.js',
   },
 
   mode: 'development',
@@ -41,7 +40,7 @@ module.exports = {
             loader: 'file-loader',
             options: {},
           },
-        ]
+        ],
       },
       {
         test: /\.(png|jpg|gif|ico|ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
@@ -49,60 +48,49 @@ module.exports = {
           {
             loader: 'url-loader', // works like file loader but can return a DataURL if the file is smaller than a byte limit.
             options: {
-              limit: 8192
+              limit: 8192,
             },
           },
-        ]
+        ],
       },
       {
         test: /\.json$/,
-        use: ["json-loader"]
+        use: ['json-loader'],
       },
       {
         test: /\.scss$/,
-        include: path.resolve(__dirname, "src/scss"),
-        use: [
-          "style-loader",
-          "css-loader", 
-          "postcss-loader",
-          "sass-loader"
-        ]
+        include: path.resolve(__dirname, 'src/scss'),
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, "src/css"),
-        use: [
-          "style-loader",
-          "css-loader",
-          "postcss-loader"
-        ]
+        include: path.resolve(__dirname, 'src/css'),
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
-    ]
+    ],
   },
 
   resolve: {
-    extensions: ['.js', '.jsx','.scss', '.sass', '.css'],
+    extensions: ['.js', '.jsx', '.scss', '.sass', '.css'],
   },
 
   devServer: {
     historyApiFallback: true,
     contentBase: '/dist/',
-    port: 8080
+    port: 8080,
   },
 
   output: {
     publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'HTML Boilerplate',
-      template: 'src/templates/index.html'
+      title: 'MaYi | Sunny Day',
+      template: 'src/templates/index.html',
     }),
-    new CopyWebpackPlugin([
-      {from: './src/assets', to: './assets'}
-    ])
-  ]
+    new CopyWebpackPlugin([{ from: './src/assets', to: './assets' }]),
+  ],
 };
